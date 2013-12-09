@@ -195,6 +195,7 @@ DJANGO_APPS = (
 THIRD_PARTY_APPS = (
     # Database migration helpers:
     # 'south',
+    'rest_framework',
 )
 
 # Apps specific for this project go here.
@@ -244,3 +245,19 @@ LOGGING = {
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#wsgi-application
 WSGI_APPLICATION = '%s.wsgi.application' % SITE_NAME
 ########## END WSGI CONFIGURATION
+
+########## THIRDPARTY CONFIGURATION
+# django-rest-framework
+REST_FRAMEWORK = {
+    'DEFAULT_MODEL_SERIALIZER_CLASS': 'rest_framework.serializers.HyperlinkedModelSerializer',
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
+}
+########## END THIRDPARTY CONFIGURATION
+
+########## TAXITOGETHER SPECIFIC CONFIGURATION
+AUTH_USER_MODEL = 'taxitogether.Duck'
+########## END TAXITOGETHER SPECIFIC CONFIGURATION
+
+
