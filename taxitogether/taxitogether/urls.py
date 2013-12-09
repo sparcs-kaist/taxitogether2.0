@@ -4,11 +4,12 @@ from django.contrib import admin
 admin.autodiscover()
 from rest_framework import routers
 
-from taxitogether.views.duck import DuckViewSet
+from taxitogether.views.duck import DuckViewSet, DeviceViewSet
 
 
 router = routers.DefaultRouter()
 router.register(r'ducks', DuckViewSet)
+router.register(r'devices', DeviceViewSet)
 
 urlpatterns = patterns('',
     url(r'^$', TemplateView.as_view(template_name='base.html')),
